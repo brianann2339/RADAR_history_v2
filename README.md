@@ -14,6 +14,9 @@ Retrospective emergency-department crowding dashboard (Taipei Tzu Chi Hospital E
 | `png/`, `overview_2020_2024.png`, `validation_covid.png` | Static figures |
 | `surge_months.json` | Months flagged as surges |
 | `mortality_results.json` | Aggregated crowding × in-hospital mortality model results |
+| `5min/` | 5-minute series, one JSON per calendar month (60 files, ~250 KB each) — fetched by the page only when you zoom in |
+
+The chart has four resolutions: monthly, daily, hourly and 5-minute. The 5-minute series (526,176 points) is not embedded in `index.html`; when the visible range is under about 35 days the page fetches the months it needs from `5min/` and switches back to hourly when you zoom out. A copy of the HTML opened from a local file cannot fetch them and stays on hourly.
 
 Everything in this repository is aggregated. No patient names, chart numbers or encounter numbers are included, and any cell with fewer than 5 deaths is suppressed.
 
